@@ -3,7 +3,7 @@
     "builds": [{
     "src": "ecommerce/wsgi.py",
     "use": "@vercel/python",
-    "config": { "maxLamdaSize" :"15mb" ,"runtime": "python4.2.5"}
+    "config": { "maxLamdaSize" :"15mb" ,"runtime": "python3.9"}
 
 }],
 

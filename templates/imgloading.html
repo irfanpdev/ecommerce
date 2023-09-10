@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Image Uploading{% endblock title %}
+{% block body %}
+
+ 
+<br/>
+<br/>
+<br/>
+<br/>
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+      {% include 'messages.html' %}
+      <div class="section-title" data-aos="fade-up">
+        <h2>Image Uploading</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-about">
+            <h3>A2Z Infotech Services</h3>
+            <p>We provide complete hardware and software support at affordable cost.</p>
+            
+          </div>
+        </div>
+
+        
+        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+          <form action="imgload" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="file" multiple name="imgurl" class="form-control" accept="image/*"  required>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" class="form-control" name="imgtype"  placeholder="Enter Image Type" required>
+            </div>
+            
+            <div class="my-3">
+              
+            <div class="text-center"><input type="submit" value="Upload"></button></div>
+          </form>
+          
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+{% endblock body %}

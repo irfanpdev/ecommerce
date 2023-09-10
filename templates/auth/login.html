@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Login {% endblock title %}
+{% block body %}
+
+<br/>
+<br/>
+<br/>
+<!-- ======= Signup Section ======= -->
+<section id="contact" class="contact">
+    
+
+        
+        
+            
+                <div class="container h-100">
+                  {% include 'auth/messages.html' %}
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-8 col-md-7 col-lg-5 col-xl-4">
+                      <div class="card" style="border-radius: 10px;">
+                        <div class="card-body p-2">
+                            <div class="section-title" data-aos="fade-up">
+                          <h2 class="text-uppercase text-center mb-1">Login</h2>
+                              </div>
+                          
+          <form action="/ecomaut/login" method="post">
+            {% csrf_token %}
+            
+
+            <div class="form-outline mb-4">
+              <input type="email" id="email" name='email' class="form-control form-control-lg" required/>
+              <label class="form-label" for="email">Your Email</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" id="passwd" name='passwd' class="form-control form-control-lg" required/>
+              <label class="form-label" for="passwd">Password</label>
+            </div>
+
+                            
+
+              <div class="d-flex justify-content-center">
+                <button type="submit"
+                  class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                  
+              </div>
+              <p class="text-center text-muted mt-2 mb-0">Don't Have account? <a href="/ecomaut/signup" class="fw-bold text-body">Signup Here</a> </p>
+              <p class="text-right text-muted mt-2 mb-0">Login trouble ? <a href="{% url 'forgetpasslink' %}" class="fw-bold text-body">Forget Password</a></p>
+              <p class="text-center text-muted mt-2 mb-0"><a href="{% url 'changePassword' %}" class="fw-bold text-body">Change Password</a></p>
+            
+          </form>
+          
+        </div>
+    </div>
+  </div>
+</div>
+
+</div>
+          
+        
+
+
+    </div>
+  </section><!-- End Contact Section -->
+{% endblock body %}

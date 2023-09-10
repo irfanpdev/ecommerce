@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Team{% endblock title %}
+
+{% block body %}
+</br>
+<br/>
+<br/>
+<br/>
+<!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Team</h2>
+        <p>His needs result from something that actually drives him away</p>
+      </div>
+
+      <div class="row">
+        {% for t in team %}
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-img">
+              <img src="{{t.image.url}}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>{{t.name}}</h4>
+              <span>{{t.desination}}</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+
+        
+
+        
+
+      </div>
+
+    </div>
+  </section><!-- End Team Section -->
+
+{% endblock body %}

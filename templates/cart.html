@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Team{% endblock title %}
+
+{% block body %}
+</br>
+<br/>
+<br/>
+<br/>
+<!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg">
+
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <div class="section-title" data-aos="fade-up">
+    <h2>Welcome to E-Shopping</h2>
+ 
+      </div>
+      
+      {% for prod, range, nslide in allprods %}
+      <h3> {{prod.0.category}} Flashsale </h3>
+      <div class="row">
+        {% for p in prod %}
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member">
+            <div class="member-img">
+              <img src="{{p.image.url}}" class="img-fluid" height=250px; width=250px; alt="">
+              
+            </div>
+            <div class="member-info">
+              <h5 class="card-title" id="namepr{{p.id}}">{{p.product_name}}</h5>
+              <p class="card-text">{{p.desc|slice:"0:53"}}...</p>
+              <h6 class="card-title">Price: {{p.price}}</h6>
+              <button id="pr{{p.id}}" class="btn btn-success btn-sm mt=0">AddToCart</button>
+              
+              <a href="{{p.image.url}}" <button id="pr{{p.id}}" class="btn btn-success btn-sm mt=0">View</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+       
+
+      </div>
+      {% endfor %}
+    </div>
+  
+  </section><!-- End Team Section -->
+
+{% endblock body %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Portfolio{% endblock title %}
+{% block body %}
+
+<br/>
+</br>
+<br/>
+<br/>
+ <!-- ======= Portfolio Section ======= -->
+ <section id="portfolio" class="portfolio">
+
+  {% for prod, range, nslide in allprods %}
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h3> {{prod.0.category}} Flashsale </h3>
+       
+      </div>
+     
+     <div class="container">
+      <div class="row">
+            
+        {% for p in prod %}
+        <div class="col-lg-3 col-md-3 portfolio-item filter-app">
+     
+          <img src="{{p.image.url}}" class="img-fluid" alt="">
+          <div class="card-body">
+            <h5 class="card-title" id="namepr{{p.id}}">{{p.product_name}}</h5>
+            <p class="card-text">{{p.desc|slice:"0:53"}}...</p>
+            <h6 class="card-title">Price: <span id="pricepr{{p.prrice}}">{{p.price}}</span></h6>
+            <span id="divpr{{p.id}}" class="divpr">
+              <button id="pr{{p.id}}" class="btn btn-success btn-sm mt=0">AddToCart</button>
+            </span>
+            <div class="portfolio-links">
+              <a href="{{p.img.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App"><i class="bx bx-plus"></i></a>
+              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+      </div>    
+      </div>
+      {% endfor %}
+
+    </div>
+  </section><!-- End Portfolio Section -->
+{% endblock body %}

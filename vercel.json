@@ -1,15 +1,15 @@
 
 {
     "builds": [{
-    "src": "ecommerce/wgsi.py",
+    "src": "ecommerce/wsgi.py",
     "use": "@vercel/python",
-    "config": { "maxlamdaSize" :"15mb" ,"runtime": "python4.2.5"}
+    "config": { "maxLamdaSize" :"15mb" ,"runtime": "python4.2.5"}
 
 }],
 
 "routes":[{
     "src":"/(.*)",
-    "dest":"ecommerce/wgsi.py"
+    "dest":"ecommerce/wsgi.py"
 
 }]
 

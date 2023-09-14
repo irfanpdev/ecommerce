@@ -8,7 +8,7 @@
 }],
 
 "routes":[{
-    {"src":"/(.*)", "destination": "/"}
+    "src":"/(.*)",
     "dest":"ecommerce/wsgi.py"
 
 }]

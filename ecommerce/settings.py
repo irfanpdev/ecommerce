@@ -93,7 +93,7 @@ DATABASES = {
 }
 
 
-DATABASES["default"]=dj_database_url.parse("postgres://ecomm_k3oc_user:imjTYE08lPv5d4keHW0uv175OrtH4Zr0@dpg-ck2kg7mru70s738dvnjg-a.singapore-postgres.render.com/ecomm_k3oc")
+#DATABASES["default"]=dj_database_url.parse("postgres://ecomm_k3oc_user:imjTYE08lPv5d4keHW0uv175OrtH4Zr0@dpg-ck2kg7mru70s738dvnjg-a.singapore-postgres.render.com/ecomm_k3oc")
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

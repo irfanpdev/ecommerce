@@ -9,12 +9,13 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-#import dj_database_url
-from pathlib import Path
+import dj_database_url
+
 
 import os
-from django.contrib import messages
 
+from django.contrib import messages
+from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -90,7 +91,9 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-#DATABASES["default"]=dj_database_url.parse("postgres://ecomm_k3oc_user:imjTYE08lPv5d4keHW0uv175OrtH4Zr0@dpg-ck2kg7mru70s738dvnjg-a.singapore-postgres.render.com/ecomm_k3oc")
+
+
+DATABASES["default"]=dj_database_url.parse("postgres://ecomm_k3oc_user:imjTYE08lPv5d4keHW0uv175OrtH4Zr0@dpg-ck2kg7mru70s738dvnjg-a.singapore-postgres.render.com/ecomm_k3oc")
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -138,6 +141,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
+STATIC_ROOT= BASE_DIR / "staticfile-cdn"
+
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 # Default primary key field type

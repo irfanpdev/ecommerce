@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
+
 import os
 from django.contrib import messages
 
@@ -82,14 +83,14 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ecommerce",
-        "USER": "ecommerce",
-        "PASSWORD": "irfan123",
-        "HOST": "127.0.0.1",
+        "NAME": "ecomm_k3oc",
+        "USER": "ecomm_k3oc_user",
+        "PASSWORD": "imjTYE08lPv5d4keHW0uv175OrtH4Zr0",
+        "HOST": "dpg-ck2kg7mru70s738dvnjg-a",
         "PORT": "5432",
     }
 }
-
+DATABASES["default"]=dj_database_url.parse("postgres://ecomm_k3oc_user:imjTYE08lPv5d4keHW0uv175OrtH4Zr0@dpg-ck2kg7mru70s738dvnjg-a.singapore-postgres.render.com/ecomm_k3oc")
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

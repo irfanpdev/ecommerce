@@ -43,7 +43,37 @@
         </div>
         {% endfor %}
             
-        
+        {% for p in products2 %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-wrap">
+            <img src="{{p.img.url}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App</h4>
+             
+              <div class="portfolio-links">
+                <a href="{{p.img.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for p in products %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-wrap">
+            <img src="{{p.img.url}}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>App</h4>
+             
+              <div class="portfolio-links">
+                <a href="{{p.img.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
 
     </div>

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import dj_database_url
 
-
+import environ
 import os
 
 from django.contrib import messages
@@ -23,8 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+env=environ.Env()
+environ.Env.read_env()
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%#4rpq=e!wb)o1)&71wpxuit0ji4&m++ma0a35duzdct*k5-78'
+with open(os.path.join(BASE_DIR,'secret_key.txt')) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -82,19 +86,22 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "ecomm_k3oc",
-        "USER": "ecomm_k3oc_user",
-        "PASSWORD": "imjTYE08lPv5d4keHW0uv175OrtH4Zr0",
-        "HOST": "dpg-ck2kg7mru70s738dvnjg-a",
-        "PORT": "5432",
-    }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "ecomm_k3oc",
+#         "USER": "ecomm_k3oc_user",
+#         "PASSWORD": "imjTYE08lPv5d4keHW0uv175OrtH4Zr0",
+#         "HOST": "dpg-ck2kg7mru70s738dvnjg-a",
+#         "PORT": "5432",
+#     }
+# }
+
+
+DATABASES={
+    'default':dj_database_url.parse(env('DATABASE_URL'))
 }
 
-
-DATABASES["default"]=dj_database_url.parse("postgres://ecomm_k3oc_user:imjTYE08lPv5d4keHW0uv175OrtH4Zr0@dpg-ck2kg7mru70s738dvnjg-a.singapore-postgres.render.com/ecomm_k3oc")
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -144,8 +151,12 @@ STATICFILES_DIRS=[
 ]
 STATIC_ROOT= BASE_DIR / "staticfile-cdn"
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+#MEDIA_ROOT=os.path.join(os.path.dirname(BASE_DIR),"mediafile-cdn")
+MEDIA_ROOT=os.path.join(BASE_DIR,"media/")
+#print('what is this',MEDIA_ROOT)
+#MEDIA_ROOT='home/user/127.0.0.1:8000/media/'
 MEDIA_URL='/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -168,4 +179,14 @@ EMAIL_HOST_PASSWORD = 'kowhwkaiaddmekzn'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+# for deployment server
+# HTTPS SETTINGS 
 
+#SESSION_COOKIE_SECURE=True
+#SRF_COOKIE_SECURE=True
+#SECURE_SSL_REDIRECT=True
+
+# HSTS SETTINGS
+#SECURE_HSTS_SECONDS=31536000 #1 YEAR
+#SECURE_HSTS_PRELOAD=True
+#SECURE_HSTS_INCLUDE_SUBDOMAINS=True
